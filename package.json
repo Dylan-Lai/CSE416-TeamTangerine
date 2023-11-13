@@ -4,8 +4,37 @@
   "description": "First, you will want to clone the GitHub Repo onto your system. To do this, click on the **Code** button on the top of the page and copy the SSH Link. In your terminal enter:",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/index.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "test": "npm run cypress && npm run jest",
+    "jest": "cd tests && npx jest --forceExit", 
+    "cypress": "npx cypress run --spec \"cypress/e2e/spec.cy.js\""
   },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.2.0",
+    "mongoose": "^8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NCZ317/CSE416-TeamTangerine.git"
+  },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NCZ317/CSE416-TeamTangerine/issues"
+  },
+  "homepage": "https://github.com/NCZ317/CSE416-TeamTangerine#readme",
+  "devDependencies": {
+    "cypress": "^13.4.0",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3"
+  }
 }

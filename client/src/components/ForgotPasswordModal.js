@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import {
     Button,
     Modal,
@@ -35,14 +36,18 @@ const customButtonStyle = {
     textTransform: 'none',
 };
 
-export default function ForgotPasswordModal() {
+export default function ForgotPasswordModal({open, onClose}) {
 
-    const handleForgotPassword = () => {
-        alert("Forgot Password clicked");
+    const [email, setEmail] = useState('');
+
+    const handleForgotPassword = async () => {
+
+        onClose();
+
     };
 
     return (
-        <Modal open={true}>
+        <Modal open={open} onClose={onClose}>
             <Paper
                 sx={{
                     position: 'absolute',
@@ -75,6 +80,7 @@ export default function ForgotPasswordModal() {
                             id="email"
                             placeholder="Email"
                             style={customTextFieldStyle}
+                            onChange={e => {setEmail(e.target.value);}}
                         />
                     </div>
                 </Box>
@@ -94,6 +100,7 @@ export default function ForgotPasswordModal() {
                     <Button
                         variant="contained"
                         color="primary"
+                        onClick={handleForgotPassword}
                         style={customButtonStyle}
                     >
                         Submit

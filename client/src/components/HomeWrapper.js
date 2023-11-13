@@ -3,6 +3,7 @@ import { Box, Button, Grid, Menu, MenuItem, Checkbox, FormControlLabel, Typograp
 import AppBanner from './AppBanner';
 import MapCard from './MapCard';
 import SortIcon from '@mui/icons-material/Sort';
+import LoginModal from './LoginModal';
 
 const searchbarStyle = {
     backgroundColor: '#F6A440',
@@ -38,7 +39,7 @@ export default function HomeWrapper() {
 
     return (
         <div>
-            <AppBanner />
+            {/* <AppBanner /> */}
             
             <div style={{ display: 'flex'}}>
                 <input type="text" placeholder="Search" style={searchbarStyle} className="searchbar" />
@@ -47,6 +48,7 @@ export default function HomeWrapper() {
                     color="primary"
                     onClick={handleSortClick}
                     style={buttonStyle}
+                    id='sort-filter-button'
                 >
                     <SortIcon style={{ height: '100%', width: '56px' }}/>
                 </Button>
@@ -54,6 +56,7 @@ export default function HomeWrapper() {
                     anchorEl={anchorEl}
                     open={Boolean(anchorEl)}
                     onClose={handleSortClose}
+                    id='sort-filter-menu'
                 >
                     <Typography variant="h6" style={{marginLeft: '8px'}}>Sort By</Typography>
                     <MenuItem onClick={() => handleSortOptionClick('Most Popular')}>Most Popular</MenuItem>
