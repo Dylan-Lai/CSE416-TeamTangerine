@@ -54,6 +54,7 @@ const customButtonStyle = {
 export default function CreateAccountModal() {
     const handleCreateAccount = () => {
         alert("Creating an account");
+        //change state
     };
 
     return (

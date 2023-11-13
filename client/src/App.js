@@ -11,6 +11,7 @@ import MapWrapper from './components/MapWrapper';
 const App = () => {
   return (
     <div className="App">
+      {<HomeWrapper/>}
       {<MapWrapper/>}
       {/* {<LoginModal/>} */}
     </div>

@@ -39,10 +39,12 @@ const customButtonStyle = {
 export default function LoginModal() {
     const handleLogin = () => {
         alert("Logging In");
+        //change state
     };
 
     const handleForgotPassword = () => {
         alert("Forgot Password clicked");
+        //change state
     };
 
     return (
